@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class TopMenuPage {
     public SelenideElement logoutLink = $("[ng-click=\"mainCtrl.logout()\"]");
-    public SelenideElement welcome = $(by("ng-binding", "mainCtrl.user.name"));
+    public SelenideElement welcome = $("div.col-sm-3.text-right.panel-body");
 
 
     public void clickLogoutLink() {

@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.selenide</groupId>
+    <groupId>backoffice</groupId>
     <artifactId>backoffice</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -25,6 +25,24 @@
             <version>3.0.1</version>
         </dependency>
     </dependencies>
+
+    <profiles>
+
+        <profile>
+            <id>qa</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources/qa</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+
+    </profiles>
 
 
 </project>

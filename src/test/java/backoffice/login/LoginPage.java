@@ -11,7 +11,6 @@ public class LoginPage {
     private SelenideElement password = $(by("ng-model", "authCtrl.credentials.password"));
     private SelenideElement signInButton = $("[ng-disabled=\"loginForm.$invalid\"]");
 
-
     public void open() {
         Selenide.open("/");
     }
@@ -28,8 +27,7 @@ public class LoginPage {
         this.signInButton.click();
     }
 
-    public void login (String user, String password){
-        this.open();
+    public void login(String user, String password) {
         this.inputUserName(user);
         this.inputPassword(password);
         this.clickSingInButton();

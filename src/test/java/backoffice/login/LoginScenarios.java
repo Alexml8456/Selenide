@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Test;
 
 import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.text;
 
 public class LoginScenarios extends BaseConfigs {
 
@@ -20,7 +21,9 @@ public class LoginScenarios extends BaseConfigs {
 
     @Test
     public void openPage() {
-        loginPage.login("user2_fd","test");
-        topMenuPage.logoutLink.shouldBe(exist);
+        loginPage.open();
+        loginPage.login(getUserName(), getPassword());
+        topMenuPage.logoutLink.should(exist);
+        topMenuPage.welcome.shouldHave(text("Welcome user2_fd"));
     }
 }
