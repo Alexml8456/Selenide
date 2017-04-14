@@ -10,6 +10,7 @@ public class LoginPage {
     private SelenideElement userName = $(by("ng-model", "authCtrl.credentials.username"));
     private SelenideElement password = $(by("ng-model", "authCtrl.credentials.password"));
     private SelenideElement signInButton = $("[ng-disabled=\"loginForm.$invalid\"]");
+    public SelenideElement dangerAlert = $(".panel-title");
 
     public void open() {
         Selenide.open("/");
