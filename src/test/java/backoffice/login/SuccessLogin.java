@@ -5,10 +5,11 @@ import backoffice.configs.BaseTest;
 import org.junit.After;
 import org.junit.Test;
 
-import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.text;
+import static backoffice.Gherkin.*;
+import static com.codeborne.selenide.Condition.visible;
 
-public class SuccessLoginTest extends BaseTest {
+public class SuccessLogin extends BaseTest {
 
     LoginPage loginPage = new LoginPage();
     TopMenuPage topMenuPage = new TopMenuPage();
@@ -20,9 +21,14 @@ public class SuccessLoginTest extends BaseTest {
 
     @Test
     public void successfulLogin() {
+        GIVEN("Open main page");
         loginPage.open();
+
+        WHEN("User successfully login");
         loginPage.login(getUserName(), getPassword());
-        topMenuPage.logoutLink.should(exist);
+
+        EXPECT("Logout link and welcome message should be present");
+        topMenuPage.logoutLink.shouldBe(visible);
         topMenuPage.welcome.shouldHave(text("Welcome user2_fd"));
     }
 }

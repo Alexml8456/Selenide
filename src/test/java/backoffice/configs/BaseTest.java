@@ -1,5 +1,6 @@
 package backoffice.configs;
 
+import backoffice.login.LoginPage;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Screenshots;
 import com.google.common.io.Files;
@@ -33,7 +34,6 @@ public class BaseTest {
         Configuration.browser = config.getProperty(TEST_BROWSER);
         //Configuration.browserSize = config.getProperty(BROWSER_SIZE);
         Configuration.timeout = Long.valueOf(config.getProperty(TEST_TIMEOUT));
-
     }
 
     public static String getUserName() {
