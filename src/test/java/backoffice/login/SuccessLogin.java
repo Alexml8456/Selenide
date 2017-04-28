@@ -21,10 +21,7 @@ public class SuccessLogin extends BaseTest {
 
     @Test
     public void successfulLogin() {
-        GIVEN("Open main page");
-        loginPage.open();
-
-        WHEN("User successfully login");
+        WHEN("User login");
         loginPage.login(getUserName(), getPassword());
 
         EXPECT("Logout link and welcome message should be present");

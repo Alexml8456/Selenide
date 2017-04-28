@@ -1,6 +1,5 @@
 package backoffice.login;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -12,11 +11,6 @@ public class LoginPage {
     private SelenideElement password = $(by("ng-model", "authCtrl.credentials.password"));
     private SelenideElement signInButton = $("[ng-disabled=\"loginForm.$invalid\"]");
     public SelenideElement dangerAlert = $(".panel-title");
-
-    @Step
-    public void open() {
-        Selenide.open("/");
-    }
 
     @Step
     public void inputUserName(String user) {

@@ -1,8 +1,8 @@
 package backoffice.configs;
 
-import backoffice.login.LoginPage;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Screenshots;
+import com.codeborne.selenide.Selenide;
 import com.google.common.io.Files;
 import org.junit.After;
 import org.junit.BeforeClass;
@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Properties;
 
+import static backoffice.Gherkin.*;
 import static backoffice.PropertyReader.getConfig;
 
 
@@ -27,13 +28,22 @@ public class BaseTest {
     private static Properties config;
 
     @BeforeClass
-    public static void config() {
+    public static void onceExecutedBeforeAll() {
+        config();
+        openPage();
+    }
+
+    private static void config() {
         config = getConfig();
 
         Configuration.baseUrl = config.getProperty(APP_URL);
         Configuration.browser = config.getProperty(TEST_BROWSER);
         //Configuration.browserSize = config.getProperty(BROWSER_SIZE);
         Configuration.timeout = Long.valueOf(config.getProperty(TEST_TIMEOUT));
+    }
+
+    private static void openPage() {
+        Selenide.open("/");
     }
 
     public static String getUserName() {
