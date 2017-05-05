@@ -3,8 +3,7 @@ package backoffice.login;
 import backoffice.configs.BaseTest;
 import org.junit.Test;
 
-import static backoffice.Gherkin.EXPECT;
-import static backoffice.Gherkin.WHEN;
+import static backoffice.Gherkin.*;
 import static com.codeborne.selenide.Condition.text;
 
 public class UnSuccessLogin extends BaseTest {
