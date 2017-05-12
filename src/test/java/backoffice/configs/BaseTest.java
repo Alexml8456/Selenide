@@ -17,12 +17,12 @@ import static backoffice.PropertyReader.getConfig;
 
 public class BaseTest {
 
-    public static final String USER_NAME = "user";
-    public static final String PASSWORD = "password";
-    public static final String APP_URL = "app.url";
-    public static final String TEST_BROWSER = "test.browser";
-    public static final String BROWSER_SIZE = "browser.size";
-    public static final String TEST_TIMEOUT = "test.timeout";
+    private static final String USER_NAME = "user";
+    private static final String PASSWORD = "password";
+    private static final String APP_URL = "app.url";
+    private static final String TEST_BROWSER = "test.browser";
+    private static final String BROWSER_SIZE = "browser.size";
+    private static final String TEST_TIMEOUT = "test.timeout";
 
     private static Properties config;
 
@@ -37,8 +37,10 @@ public class BaseTest {
 
         Configuration.baseUrl = config.getProperty(APP_URL);
         Configuration.browser = config.getProperty(TEST_BROWSER);
-        //Configuration.browserSize = config.getProperty(BROWSER_SIZE);
+        Configuration.browserSize = config.getProperty(BROWSER_SIZE);
         Configuration.timeout = Long.valueOf(config.getProperty(TEST_TIMEOUT));
+        //Configuration.fastSetValue = true;
+        //Configuration.startMaximized = true;
     }
 
     private static void openPage() {
