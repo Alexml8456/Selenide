@@ -1,11 +1,13 @@
 package backoffice.configs;
 
+import backoffice.utils.listener.CustomEventListener;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Screenshots;
 import com.codeborne.selenide.Selenide;
 import com.google.common.io.Files;
 import org.junit.After;
 import org.junit.BeforeClass;
+import org.openqa.selenium.support.events.WebDriverEventListener;
 import ru.yandex.qatools.allure.annotations.Attachment;
 
 import java.io.File;
@@ -13,6 +15,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import static backoffice.PropertyReader.getConfig;
+import static com.codeborne.selenide.WebDriverRunner.webdriverContainer;
 
 
 public class BaseTest {
@@ -29,6 +32,7 @@ public class BaseTest {
     @BeforeClass
     public static void onceExecutedBeforeAll() {
         config();
+        addListener(new CustomEventListener());
         openPage();
     }
 
@@ -45,6 +49,10 @@ public class BaseTest {
 
     private static void openPage() {
         Selenide.open("/");
+    }
+
+    public static void addListener(WebDriverEventListener listener) {
+        webdriverContainer.addListener(listener);
     }
 
     public static String getUserName() {
