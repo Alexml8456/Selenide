@@ -41,7 +41,7 @@ public class BaseTest {
 
         Configuration.baseUrl = config.getProperty(APP_URL);
         Configuration.browser = config.getProperty(TEST_BROWSER);
-        Configuration.browserSize = config.getProperty(BROWSER_SIZE);
+        //Configuration.browserSize = config.getProperty(BROWSER_SIZE);
         Configuration.timeout = Long.valueOf(config.getProperty(TEST_TIMEOUT));
         //Configuration.fastSetValue = true;
         //Configuration.startMaximized = true;

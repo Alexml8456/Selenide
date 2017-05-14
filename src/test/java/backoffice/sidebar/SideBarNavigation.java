@@ -7,7 +7,7 @@ import ru.yandex.qatools.allure.annotations.Step;
 import static com.codeborne.selenide.Selenide.$;
 
 public class SideBarNavigation {
-    private SelenideElement sidebar = $("md-sidenav.md-sidenav-left.col-md-2.md-closed.md-locked-open");
+    private SelenideElement sidebar = $("md-sidenav[md-component-id=\"sidebar\"]");
     private SelenideElement aboutButton = this.sidebar.$("a[ng-controller=\"AboutCtrl as ctrl\"]");
 
     @Step

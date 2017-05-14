@@ -9,9 +9,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import static com.codeborne.selenide.CollectionCondition.*;
+import static com.codeborne.selenide.Condition.*;
+
 public class AboutScenarios extends BaseTest {
 
-    static AboutDialog aboutPage = new AboutDialog();
+    static AboutDialog aboutDialog = new AboutDialog();
     static LoginPage loginPage = new LoginPage();
     static TopMenuPage topMenuPage = new TopMenuPage();
     static SideBarNavigation sideBar = new SideBarNavigation();
@@ -29,7 +32,8 @@ public class AboutScenarios extends BaseTest {
     @Test
     public void commonInformation() {
         sideBar.clickAboutButton();
-        System.out.println(aboutPage.aboutHeader.getText());
-        aboutPage.clickCloseButton();
+        aboutDialog.aboutHeader.shouldHave(text("About Sputnik-1"));
+        aboutDialog.aboutContext.shouldHave(size(14));
+        aboutDialog.clickCloseButton();
     }
 }
