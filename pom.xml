@@ -14,9 +14,13 @@
         <allure.version>1.5.2</allure.version>
         <allure.plugin.version>2.5</allure.plugin.version>
         <aspectj.version>1.8.10</aspectj.version>
-        <maven.surefire.plugin>2.19.1</maven.surefire.plugin>
+        <maven.surefire.plugin>2.20</maven.surefire.plugin>
         <junit.version>4.12</junit.version>
         <chome.driver.version>3.0.1</chome.driver.version>
+        <maven-site-plugin>3.6</maven-site-plugin>
+        <maven-compiler-plugin>3.6.1</maven-compiler-plugin>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -56,6 +60,22 @@
             </resource>
         </resources>
         <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin}</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>${maven-site-plugin}</version>
+            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

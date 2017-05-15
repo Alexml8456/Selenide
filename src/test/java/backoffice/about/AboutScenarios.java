@@ -9,6 +9,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import static backoffice.Gherkin.EXPECT;
+import static backoffice.Gherkin.WHEN;
 import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Condition.*;
 
@@ -25,15 +27,19 @@ public class AboutScenarios extends BaseTest {
     }
 
     @After
-    public void logOut() {
+    public void closeAndLogOut() {
+        aboutDialog.clickCloseButton();
         topMenuPage.clickLogoutLink();
     }
 
     @Test
     public void commonInformation() {
+        WHEN("User click About button");
         sideBar.clickAboutButton();
+
+        EXPECT("About header should be present");
         aboutDialog.aboutHeader.shouldHave(text("About Sputnik-1"));
+        EXPECT("About context should contain 14 rows");
         aboutDialog.aboutContext.shouldHave(size(14));
-        aboutDialog.clickCloseButton();
     }
 }

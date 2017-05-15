@@ -21,6 +21,7 @@ public class LoginPage {
     public void inputPassword(String password) {
         this.password.setValue(password);
     }
+
     @Step
     public void clickSingInButton() {
         this.signInButton.click();
