@@ -9,8 +9,8 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 
 @Suite.SuiteClasses({
-        //SuccessLogin.class,
-        //UnSuccessLogin.class
+        SuccessLogin.class,
+        UnSuccessLogin.class,
         AboutScenarios.class
 })
 
