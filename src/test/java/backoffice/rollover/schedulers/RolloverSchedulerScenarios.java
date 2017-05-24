@@ -31,8 +31,10 @@ public class RolloverSchedulerScenarios extends BaseTest {
     @Test
     public void createNewScheduler() {
         configurationPage.newScheduler.click();
-        rolloverSchedulerDialog.symbolField.sendKeys("OIL");
+        rolloverSchedulerDialog.symbolField.setValue("OIL");
         selectWrapper.selectByTitle(rolloverSchedulerDialog.symbolDropDownMenu, "OIL");
+        rolloverSchedulerDialog.nextPeriod.setValue("/CLZ7");
+        selectWrapper.selectByTitle(rolloverSchedulerDialog.nextPeriodDropDownMenu, "/CLZ7");
         rolloverSchedulerDialog.cancelButton.click();
     }
 }
