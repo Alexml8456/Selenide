@@ -1,17 +1,16 @@
 package backoffice;
 
-import backoffice.about.AboutScenarios;
-import backoffice.login.SuccessLogin;
-import backoffice.login.UnSuccessLogin;
+import backoffice.rollover.schedulers.RolloverSchedulerScenarios;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 
 @Suite.SuiteClasses({
-        SuccessLogin.class,
+/*        SuccessLogin.class,
         UnSuccessLogin.class,
-        AboutScenarios.class
+        AboutScenarios.class,*/
+        RolloverSchedulerScenarios.class
 })
 
 public class RunSuiteTest {
