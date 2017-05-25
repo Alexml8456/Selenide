@@ -1,14 +1,14 @@
 package backoffice.rollover.schedulers;
 
-
 import backoffice.configs.BaseTest;
 import backoffice.login.LoginPage;
 import backoffice.menu.TopMenuPage;
 import backoffice.rollover.configuration.ConfigurationPage;
-import backoffice.utils.SelectWrapper;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import static com.codeborne.selenide.Selectors.byTitle;
 
 public class RolloverSchedulerScenarios extends BaseTest {
 
@@ -16,11 +16,11 @@ public class RolloverSchedulerScenarios extends BaseTest {
     static TopMenuPage topMenuPage = new TopMenuPage();
     static ConfigurationPage configurationPage = new ConfigurationPage();
     static RolloverSchedulerDialog rolloverSchedulerDialog = new RolloverSchedulerDialog();
-    static SelectWrapper selectWrapper = new SelectWrapper();
 
     @Before
     public void login() {
         loginPage.login(getUserName(), getPassword());
+        configurationPage.deleteNewSchedulers();
     }
 
     @After
@@ -32,9 +32,10 @@ public class RolloverSchedulerScenarios extends BaseTest {
     public void createNewScheduler() {
         configurationPage.newScheduler.click();
         rolloverSchedulerDialog.symbolField.setValue("OIL");
-        selectWrapper.selectByTitle(rolloverSchedulerDialog.symbolDropDownMenu, "OIL");
+        rolloverSchedulerDialog.symbolDropDownMenu.$(byTitle("OIL")).click();
         rolloverSchedulerDialog.nextPeriod.setValue("/CLZ7");
-        selectWrapper.selectByTitle(rolloverSchedulerDialog.nextPeriodDropDownMenu, "/CLZ7");
-        rolloverSchedulerDialog.cancelButton.click();
+        rolloverSchedulerDialog.nextPeriodDropDownMenu.$(byTitle("/CLZ7")).click();
+        //rolloverSchedulerDialog.cancelButton.click();
+        rolloverSchedulerDialog.saveButton.click();
     }
 }
