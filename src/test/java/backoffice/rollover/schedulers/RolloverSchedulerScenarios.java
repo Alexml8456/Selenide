@@ -8,14 +8,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static com.codeborne.selenide.Selectors.byTitle;
-
 public class RolloverSchedulerScenarios extends BaseTest {
 
     static LoginPage loginPage = new LoginPage();
     static TopMenuPage topMenuPage = new TopMenuPage();
     static ConfigurationPage configurationPage = new ConfigurationPage();
-    static RolloverSchedulerDialog rolloverSchedulerDialog = new RolloverSchedulerDialog();
 
     @Before
     public void login() {
@@ -30,12 +27,6 @@ public class RolloverSchedulerScenarios extends BaseTest {
 
     @Test
     public void createNewScheduler() {
-        configurationPage.newScheduler.click();
-        rolloverSchedulerDialog.symbolField.setValue("OIL");
-        rolloverSchedulerDialog.symbolDropDownMenu.$(byTitle("OIL")).click();
-        rolloverSchedulerDialog.nextPeriod.setValue("/CLZ7");
-        rolloverSchedulerDialog.nextPeriodDropDownMenu.$(byTitle("/CLZ7")).click();
-        //rolloverSchedulerDialog.cancelButton.click();
-        rolloverSchedulerDialog.saveButton.click();
+        configurationPage.createNewScheduler("OIL", "/CLZ7");
     }
 }
