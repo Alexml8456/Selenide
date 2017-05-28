@@ -23,10 +23,6 @@ public class ConfigurationPage {
     private RolloverSchedulerDialog rolloverDialog = new RolloverSchedulerDialog();
 
     public void deleteNewSchedulers() {
-        if (this.symbols.size() > 0) {
-            this.selectAll.click();
-            this.delete.click();
-        }
         this.hideOldSchedulers.click();
         this.statusFilter.click();
         this.statusFilterFiled.setValue("New");
@@ -44,7 +40,8 @@ public class ConfigurationPage {
 
     public void createNewScheduler(String inputSymbol, String inputNextPeriod) {
         this.newScheduler.click();
-        //rolloverDialog.calendarDialog.calendarButton
+        rolloverDialog.calendarDialog.calendarButton.click();
+        rolloverDialog.calendarDialog.todayButton.click();
         rolloverDialog.symbolField.setValue(inputSymbol);
         rolloverDialog.symbolDropDownMenu.$(byTitle(inputSymbol)).click();
         rolloverDialog.nextPeriod.setValue(inputNextPeriod);
