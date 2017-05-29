@@ -6,9 +6,22 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class Calendar {
-    public SelenideElement calendarButton = $("button.btn.btn-outline");
+    private SelenideElement calendarButton = $("button.btn.btn-outline");
+    private CalendarDialog calendarDialog = new CalendarDialog();
 
-    public static class CalendarDialog extends Calendar {
-        public SelenideElement todayButton = $(byText("Today"));
+    public class CalendarDialog {
+        private SelenideElement todayButton = $(byText("Today"));
+
+        public SelenideElement getTodayButton() {
+            return todayButton;
+        }
+    }
+
+    public SelenideElement getCalendarButton() {
+        return calendarButton;
+    }
+
+    public CalendarDialog getCalendarDialog() {
+        return calendarDialog;
     }
 }

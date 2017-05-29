@@ -14,5 +14,5 @@ public class RolloverSchedulerDialog {
     public SelenideElement symbolDropDownMenu = this.rolloverSchedulerDialog.$$(".dropdown-menu").get(0);
     public SelenideElement nextPeriod = this.rolloverSchedulerDialog.$(by("ng-model", "editRolloverCtrl.item.nextPeriod"));
     public SelenideElement nextPeriodDropDownMenu = this.rolloverSchedulerDialog.$$(".dropdown-menu").get(1);
-    public Calendar.CalendarDialog calendarDialog = new Calendar.CalendarDialog();
+    public Calendar calendar = new Calendar();
 }

@@ -40,8 +40,8 @@ public class ConfigurationPage {
 
     public void createNewScheduler(String inputSymbol, String inputNextPeriod) {
         this.newScheduler.click();
-        rolloverDialog.calendarDialog.calendarButton.click();
-        rolloverDialog.calendarDialog.todayButton.click();
+        rolloverDialog.calendar.getCalendarButton().click();
+        rolloverDialog.calendar.getCalendarDialog().getTodayButton().click();
         rolloverDialog.symbolField.setValue(inputSymbol);
         rolloverDialog.symbolDropDownMenu.$(byTitle(inputSymbol)).click();
         rolloverDialog.nextPeriod.setValue(inputNextPeriod);
