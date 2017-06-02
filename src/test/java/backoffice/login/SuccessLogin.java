@@ -3,6 +3,7 @@ package backoffice.login;
 import backoffice.menu.TopMenuPage;
 import backoffice.configs.BaseTest;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -11,11 +12,11 @@ import static com.codeborne.selenide.Condition.visible;
 
 public class SuccessLogin extends BaseTest {
 
-    LoginPage loginPage = new LoginPage();
-    TopMenuPage topMenuPage = new TopMenuPage();
+    static LoginPage loginPage = new LoginPage();
+    static TopMenuPage topMenuPage = new TopMenuPage();
 
-    @After
-    public void logOut() {
+    @AfterClass
+    public static void logOut() {
         topMenuPage.clickLogoutLink();
     }
 
@@ -25,7 +26,7 @@ public class SuccessLogin extends BaseTest {
         loginPage.login(getUserName(), getPassword());
 
         EXPECT("Logout link and welcome message should be present");
-        topMenuPage.logoutLink.shouldBe(visible);
-        topMenuPage.welcome.shouldHave(text("Welcome user2_fd"));
+        topMenuPage.getLogoutLink().shouldBe(visible);
+        topMenuPage.getWelcome().shouldHave(text("Welcome user2_fd"));
     }
 }

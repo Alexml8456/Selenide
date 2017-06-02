@@ -5,9 +5,7 @@ import backoffice.configs.BaseTest;
 import backoffice.login.LoginPage;
 import backoffice.menu.TopMenuPage;
 import backoffice.sidebar.SideBarNavigation;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 import static backoffice.Gherkin.EXPECT;
 import static backoffice.Gherkin.WHEN;
@@ -21,13 +19,13 @@ public class AboutScenarios extends BaseTest {
     static TopMenuPage topMenuPage = new TopMenuPage();
     static SideBarNavigation sideBar = new SideBarNavigation();
 
-    @Before
-    public void login() {
+    @BeforeClass
+    public static void login() {
         loginPage.login(getUserName(), getPassword());
     }
 
-    @After
-    public void closeAndLogOut() {
+    @AfterClass
+    public static void closeAndLogOut() {
         aboutDialog.clickCloseButton();
         topMenuPage.clickLogoutLink();
     }
@@ -38,8 +36,8 @@ public class AboutScenarios extends BaseTest {
         sideBar.clickAboutButton();
 
         EXPECT("About header should be present");
-        aboutDialog.aboutHeader.shouldHave(text("About Sputnik-1"));
+        aboutDialog.getAboutHeader().shouldHave(text("About Sputnik-1"));
         EXPECT("About context should contain 14 rows");
-        aboutDialog.aboutContext.shouldHave(size(14));
+        aboutDialog.getAboutContext().shouldHave(size(14));
     }
 }

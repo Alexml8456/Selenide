@@ -10,7 +10,7 @@ public class LoginPage {
     private SelenideElement userName = $(by("ng-model", "authCtrl.credentials.username"));
     private SelenideElement password = $(by("ng-model", "authCtrl.credentials.password"));
     private SelenideElement signInButton = $("[ng-disabled=\"loginForm.$invalid\"]");
-    public SelenideElement dangerAlert = $(".panel-title");
+    private SelenideElement dangerAlert = $(".panel-title");
 
     @Step
     public void inputUserName(String user) {
@@ -32,5 +32,10 @@ public class LoginPage {
         this.inputUserName(user);
         this.inputPassword(password);
         this.clickSingInButton();
+    }
+
+
+    public SelenideElement getDangerAlert() {
+        return dangerAlert;
     }
 }

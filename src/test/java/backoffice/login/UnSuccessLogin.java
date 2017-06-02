@@ -16,7 +16,7 @@ public class UnSuccessLogin extends BaseTest {
         loginPage.login("test_fc", "test");
 
         EXPECT("Warning PopUp should be displayed");
-        loginPage.dangerAlert.shouldHave(text("Authentication Failed: User does not have required permissions"));
+        loginPage.getDangerAlert().shouldHave(text("Authentication Failed: User does not have required permissions"));
     }
 
     @Test
@@ -25,7 +25,7 @@ public class UnSuccessLogin extends BaseTest {
         loginPage.login("mk892545", "qwerty");
 
         EXPECT("Warning PopUp should be displayed");
-        loginPage.dangerAlert.shouldHave(text("User is expired or disabled"));
+        loginPage.getDangerAlert().shouldHave(text("User is expired or disabled"));
     }
 
     @Test
@@ -34,6 +34,6 @@ public class UnSuccessLogin extends BaseTest {
         loginPage.login("test_user", "test_user");
 
         EXPECT("Warning PopUp should be displayed");
-        loginPage.dangerAlert.shouldHave(text("Invalid credentials"));
+        loginPage.getDangerAlert().shouldHave(text("Invalid credentials"));
     }
 }
