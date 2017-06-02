@@ -13,9 +13,9 @@ import static com.codeborne.selenide.Condition.*;
 
 public class RolloverSchedulerScenarios extends BaseTest {
 
-    static LoginPage loginPage = new LoginPage();
-    static TopMenuPage topMenuPage = new TopMenuPage();
-    static ConfigurationPage configurationPage = new ConfigurationPage();
+    static final LoginPage loginPage = new LoginPage();
+    static final TopMenuPage topMenuPage = new TopMenuPage();
+    static final ConfigurationPage configurationPage = new ConfigurationPage();
 
     @BeforeClass
     public static void login() {

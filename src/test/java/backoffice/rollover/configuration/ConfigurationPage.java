@@ -27,6 +27,7 @@ public class ConfigurationPage {
     private ElementsCollection curMidDiff = $$("span[bo-animate-on-change-value='item.midPrice']");
     private ElementsCollection midDiffToUse = $$(by("ng-model", "item.manMidPrice"));
     private ElementsCollection disabledEnabled = $$(by("ng-model", "item.enable"));
+    private ElementsCollection editButton = $$("span[ng-click='userCtrl.rollovers.hasManagePermissions && ctrl.edit(item)']");
     private RolloverSchedulerDialog rolloverDialog;
 
     public ConfigurationPage() {
@@ -132,6 +133,12 @@ public class ConfigurationPage {
         return midDiffToUse;
     }
     public ElementsCollection getDisabledEnabled() {return disabledEnabled;
+    }
+    public ElementsCollection getEditButton() {
+        return editButton;
+    }
+    public RolloverSchedulerDialog getRolloverDialog() {
+        return rolloverDialog;
     }
 
 }
