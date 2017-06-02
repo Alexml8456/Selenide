@@ -15,6 +15,7 @@ public class RolloverSchedulerDialog {
     private SelenideElement nextPeriod = this.rolloverSchedulerDialog.$(by("ng-model", "editRolloverCtrl.item.nextPeriod"));
     private SelenideElement nextPeriodDropDownMenu = this.rolloverSchedulerDialog.$$(".dropdown-menu").get(1);
     private SelenideElement midDiff = this.rolloverSchedulerDialog.$(by("ng-model", "editRolloverCtrl.item.manMidPrice"));
+    private SelenideElement disabledEnabled = this.rolloverSchedulerDialog.$("label[for='enable']");
     public Calendar calendar;
 
     public RolloverSchedulerDialog() {
@@ -47,5 +48,9 @@ public class RolloverSchedulerDialog {
 
     public SelenideElement getMidDiff() {
         return midDiff;
+    }
+
+    public SelenideElement getDisabledEnabled() {
+        return disabledEnabled;
     }
 }
