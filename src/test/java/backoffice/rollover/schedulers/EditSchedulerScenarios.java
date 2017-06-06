@@ -5,6 +5,7 @@ import backoffice.login.LoginPage;
 import backoffice.menu.TopMenuPage;
 import backoffice.rollover.configuration.ConfigurationPage;
 import backoffice.utils.datetime.DateTime;
+import com.codeborne.selenide.Configuration;
 import org.junit.*;
 
 import static backoffice.Gherkin.EXPECT;
@@ -12,7 +13,6 @@ import static backoffice.Gherkin.WHEN;
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byTitle;
-import static com.codeborne.selenide.Selenide.sleep;
 
 public class EditSchedulerScenarios extends BaseTest {
 
@@ -24,10 +24,13 @@ public class EditSchedulerScenarios extends BaseTest {
     public static void login() {
         loginPage.login(getUserName(), getPassword());
         configurationPage.deleteNewSchedulers();
+    }
+
+    @Before
+    public void createScheduler() {
         configurationPage.createNewDateScheduler("OIL", "/CLF5", "May", "15");
     }
 
-    @Ignore
     @Test
     public void editSchedulerByButton() {
         WHEN("User should edit rollover scheduler by button");
@@ -51,14 +54,14 @@ public class EditSchedulerScenarios extends BaseTest {
         WHEN("User should edit rollover scheduler in runtime");
         configurationPage.calendar.openCalendarDialog();
         configurationPage.calendar.selectToday();
-        configurationPage.getNextMddPeriod().first().setValue("/CLZ7").setValue("/CLZ7");
-        configurationPage.getMidDiffToUse().first().setValue("-0.193").setValue("-0.193");
+        configurationPage.getNextMddPeriod().first().setValue("/CLZ7");
+        configurationPage.getMidDiffToUse().first().setValue("-0.13");
 
         EXPECT("Rollover scheduler should be edit");
         configurationPage.getDates().first().shouldHave(attribute("value", DateTime.getCurrentDate()));
         configurationPage.getSymbols().first().shouldHave(text("OIL"));
         configurationPage.getNextMddPeriod().first().shouldHave(attribute("value", "/CLZ7"));
-        configurationPage.getMidDiffToUse().first().shouldHave(attribute("value", "-0.193"));
+        configurationPage.getMidDiffToUse().first().shouldHave(attribute("value", "-0.13"));
     }
 
     @After
