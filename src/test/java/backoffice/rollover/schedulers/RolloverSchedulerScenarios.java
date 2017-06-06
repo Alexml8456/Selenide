@@ -30,7 +30,7 @@ public class RolloverSchedulerScenarios extends BaseTest {
 
         EXPECT("Rollover scheduler should be created");
         configurationPage.getSymbols().first().shouldHave(text("OIL"));
-        configurationPage.getDates().first().shouldHave(attribute("value", DateTime.returnCurrentDate()));
+        configurationPage.getDates().first().shouldHave(attribute("value", DateTime.getCurrentDate()));
         configurationPage.getNextMddPeriod().first().shouldHave(attribute("value", "/CLF5"));
         configurationPage.getCurMidDiff().first().shouldNotHave(text("N/A"));
     }
@@ -42,7 +42,7 @@ public class RolloverSchedulerScenarios extends BaseTest {
 
         EXPECT("Rollover scheduler with manual MidDiff should be created");
         configurationPage.getSymbols().first().shouldHave(text("COCOA"));
-        configurationPage.getDates().first().shouldHave(attribute("value", DateTime.returnCurrentDate()));
+        configurationPage.getDates().first().shouldHave(attribute("value", DateTime.getCurrentDate()));
         configurationPage.getNextMddPeriod().first().shouldHave(attribute("value", "/CCH4"));
         configurationPage.getCurMidDiff().first().shouldNotHave(text("N/A"));
         configurationPage.getMidDiffToUse().first().shouldHave(attribute("value", "2.236"));
@@ -56,7 +56,7 @@ public class RolloverSchedulerScenarios extends BaseTest {
 
         EXPECT("Rollover scheduler with custom period should be created");
         configurationPage.getSymbols().first().shouldHave(text("COCOA"));
-        configurationPage.getDates().first().shouldHave(attribute("value", DateTime.returnCurrentDate()));
+        configurationPage.getDates().first().shouldHave(attribute("value", DateTime.getCurrentDate()));
         configurationPage.getNextMddPeriod().first().shouldHave(attribute("value", "1@3QwE"));
         configurationPage.getCurMidDiff().first().shouldHave(text("N/A"));
     }

@@ -1,6 +1,7 @@
 package backoffice.rollover.configuration;
 
 
+import backoffice.calendar.Calendar;
 import backoffice.rollover.schedulers.RolloverSchedulerDialog;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -29,8 +30,11 @@ public class ConfigurationPage {
     private ElementsCollection disabledEnabled = $$(by("ng-model", "item.enable"));
     private ElementsCollection editButton = $$("span[ng-click='userCtrl.rollovers.hasManagePermissions && ctrl.edit(item)']");
     private RolloverSchedulerDialog rolloverDialog;
+    public Calendar calendar;
+
 
     public ConfigurationPage() {
+        calendar = new Calendar();
         rolloverDialog = new RolloverSchedulerDialog();
     }
 
