@@ -26,24 +26,24 @@ public class RolloverSchedulerScenarios extends BaseTest {
     @Test
     public void createNewScheduler() {
         WHEN("User create new rollover scheduler");
-        configurationPage.createNewScheduler("OIL", "/CLF5");
+        configurationPage.createNewScheduler("OIL", "/CLZ7");
 
         EXPECT("Rollover scheduler should be created");
         configurationPage.getSymbols().first().shouldHave(text("OIL"));
         configurationPage.getDates().first().shouldHave(attribute("value", DateTime.getCurrentDate()));
-        configurationPage.getNextMddPeriod().first().shouldHave(attribute("value", "/CLF5"));
+        configurationPage.getNextMddPeriod().first().shouldHave(attribute("value", "/CLZ7"));
         configurationPage.getCurMidDiff().first().shouldNotHave(text("N/A"));
     }
 
     @Test
     public void createManualAutoRunScheduler() {
         WHEN("User create new rollover scheduler with manual MidDiff");
-        configurationPage.createManualAutoRunScheduler("COCOA", "/CCH4", 2.236);
+        configurationPage.createManualAutoRunScheduler("COCOA", "/CCZ7", 2.236);
 
         EXPECT("Rollover scheduler with manual MidDiff should be created");
         configurationPage.getSymbols().first().shouldHave(text("COCOA"));
         configurationPage.getDates().first().shouldHave(attribute("value", DateTime.getCurrentDate()));
-        configurationPage.getNextMddPeriod().first().shouldHave(attribute("value", "/CCH4"));
+        configurationPage.getNextMddPeriod().first().shouldHave(attribute("value", "/CCZ7"));
         configurationPage.getCurMidDiff().first().shouldNotHave(text("N/A"));
         configurationPage.getMidDiffToUse().first().shouldHave(attribute("value", "2.236"));
         configurationPage.getDisabledEnabled().first().shouldBe(enabled);

@@ -2,6 +2,7 @@ package backoffice.calendar;
 
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -13,7 +14,7 @@ public class Calendar {
     private SelenideElement moveNextButton = $("button[ng-click='move(1)']");
 
     public void openCalendarDialog(){
-        this.calendarButton.click();
+        this.calendarButton.should(appear).hover().click();
     }
 
     public void selectToday(){

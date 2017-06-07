@@ -5,7 +5,6 @@ import backoffice.login.LoginPage;
 import backoffice.menu.TopMenuPage;
 import backoffice.rollover.configuration.ConfigurationPage;
 import backoffice.utils.datetime.DateTime;
-import com.codeborne.selenide.Configuration;
 import org.junit.*;
 
 import static backoffice.Gherkin.EXPECT;
@@ -37,15 +36,15 @@ public class EditSchedulerScenarios extends BaseTest {
         configurationPage.getEditButton().first().click();
         configurationPage.getRolloverDialog().getSymbolField().setValue("COCOA");
         configurationPage.getRolloverDialog().getSymbolDropDownMenu().$(byTitle("COCOA")).click();
-        configurationPage.getRolloverDialog().getNextPeriod().setValue("/CCH4");
-        configurationPage.getRolloverDialog().getNextPeriodDropDownMenu().$(byTitle("/CCH4")).click();
+        configurationPage.getRolloverDialog().getNextPeriod().setValue("/CCZ7");
+        configurationPage.getRolloverDialog().getNextPeriodDropDownMenu().$(byTitle("/CCZ7")).click();
         configurationPage.getRolloverDialog().getMidDiff().setValue("0.951");
         configurationPage.getRolloverDialog().getSaveButton().click();
 
         EXPECT("Rollover scheduler should be edit");
         configurationPage.getSymbols().first().shouldHave(text("COCOA"));
         configurationPage.getDates().first().shouldHave(attribute("value", "15/05/" + (DateTime.getCurrentYear() + 1)));
-        configurationPage.getNextMddPeriod().first().shouldHave(attribute("value", "/CCH4"));
+        configurationPage.getNextMddPeriod().first().shouldHave(attribute("value", "/CCZ7"));
         configurationPage.getMidDiffToUse().first().shouldHave(attribute("value", "0.951"));
     }
 
@@ -54,8 +53,8 @@ public class EditSchedulerScenarios extends BaseTest {
         WHEN("User should edit rollover scheduler in runtime");
         configurationPage.calendar.openCalendarDialog();
         configurationPage.calendar.selectToday();
-        configurationPage.getNextMddPeriod().first().setValue("/CLZ7");
-        configurationPage.getMidDiffToUse().first().setValue("-0.13");
+        configurationPage.getNextMddPeriod().first().setValue("/CLZ7").setValue("/CLZ7");
+        configurationPage.getMidDiffToUse().first().setValue("-0.13").setValue("-0.13");
 
         EXPECT("Rollover scheduler should be edit");
         configurationPage.getDates().first().shouldHave(attribute("value", DateTime.getCurrentDate()));

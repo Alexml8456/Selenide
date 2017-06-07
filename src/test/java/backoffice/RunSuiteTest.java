@@ -11,10 +11,10 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 
 @Suite.SuiteClasses({
-/*        SuccessLogin.class,
+        SuccessLogin.class,
         UnSuccessLogin.class,
         AboutScenarios.class,
-        RolloverSchedulerScenarios.class,*/
+        RolloverSchedulerScenarios.class,
         EditSchedulerScenarios.class
 })
 
