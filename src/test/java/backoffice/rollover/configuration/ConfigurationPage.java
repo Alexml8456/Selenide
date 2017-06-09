@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selenide.$$;
 import static java.lang.String.valueOf;
 
 public class ConfigurationPage {
-    private SelenideElement simulateNow = $("div[ng-hide=\"ctrl.controlsState.sim\"]");
+    private SelenideElement simulateNow = $("div[ng-click='userCtrl.rollovers.hasManagePermissions && ctrl.simulation()']");
     private SelenideElement delete = $("div[ng-show=\"ctrl.controlsState.del\"]");
     private SelenideElement newScheduler = $("span[ng-click=\"userCtrl.rollovers.hasManagePermissions && ctrl.new()\"]");
     private SelenideElement hideOldSchedulers = $("label[for=\"old\"]");
@@ -29,6 +29,8 @@ public class ConfigurationPage {
     private ElementsCollection midDiffToUse = $$(by("ng-model", "item.manMidPrice"));
     private ElementsCollection disabledEnabled = $$(by("ng-model", "item.enable"));
     private ElementsCollection editButton = $$("span[ng-click='userCtrl.rollovers.hasManagePermissions && ctrl.edit(item)']");
+    private ElementsCollection cloneButton = $$("span[ng-click='userCtrl.rollovers.hasManagePermissions && ctrl.cloneItem(item)']");
+    private SelenideElement alertMessage = $$(("span[bo-animate-on-change-value='alertCtrl.alert.message']")).get(0);
     private RolloverSchedulerDialog rolloverDialog;
     public Calendar calendar;
 
@@ -136,13 +138,30 @@ public class ConfigurationPage {
     public ElementsCollection getMidDiffToUse() {
         return midDiffToUse;
     }
-    public ElementsCollection getDisabledEnabled() {return disabledEnabled;
+
+    public ElementsCollection getDisabledEnabled() {
+        return disabledEnabled;
     }
+
     public ElementsCollection getEditButton() {
         return editButton;
     }
+
     public RolloverSchedulerDialog getRolloverDialog() {
         return rolloverDialog;
+    }
+
+    public ElementsCollection getCloneButton() {
+        return cloneButton;
+    }
+    public SelenideElement getAlertMessage() {
+        return alertMessage;
+    }
+    public SelenideElement getSelectAll() {
+        return selectAll;
+    }
+    public SelenideElement getSimulateNow() {
+        return simulateNow;
     }
 
 }
