@@ -31,8 +31,10 @@ public class BaseTest {
 
     @BeforeClass
     public static void onceExecutedBeforeAll() {
-        config();
-        addListener(new CustomEventListener());
+        if (config == null) {
+            config();
+            addListener(new CustomEventListener());
+        }
         openPage();
     }
 

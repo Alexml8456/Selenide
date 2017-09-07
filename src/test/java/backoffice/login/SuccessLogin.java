@@ -1,13 +1,13 @@
 package backoffice.login;
 
-import backoffice.menu.TopMenuPage;
 import backoffice.configs.BaseTest;
-import org.junit.After;
+import backoffice.menu.TopMenuPage;
 import org.junit.AfterClass;
 import org.junit.Test;
 
+import static backoffice.Gherkin.EXPECT;
+import static backoffice.Gherkin.WHEN;
 import static com.codeborne.selenide.Condition.text;
-import static backoffice.Gherkin.*;
 import static com.codeborne.selenide.Condition.visible;
 
 public class SuccessLogin extends BaseTest {
@@ -27,6 +27,6 @@ public class SuccessLogin extends BaseTest {
 
         EXPECT("Logout link and welcome message should be present");
         topMenuPage.getLogoutLink().shouldBe(visible);
-        topMenuPage.getWelcome().shouldHave(text("Welcome user2_fd"));
+        topMenuPage.getWelcome().shouldHave(text("Welcome alexml"));
     }
 }

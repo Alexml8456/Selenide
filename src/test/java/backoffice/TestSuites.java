@@ -21,5 +21,5 @@ import org.junit.runners.Suite;
         SimulateSchedulerScenarios.class
 })
 
-public class RunSuiteTest {
+public class TestSuites {
 }
